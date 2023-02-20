@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mac/projects/pico/test
+CMAKE_SOURCE_DIR = /home/mac/projects/pico/dma_uart
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mac/projects/pico/test/build
+CMAKE_BINARY_DIR = /home/mac/projects/pico/dma_uart/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mac/projects/pico/test/build/CMakeFiles /home/mac/projects/pico/test/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mac/projects/pico/dma_uart/build/CMakeFiles /home/mac/projects/pico/dma_uart/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mac/projects/pico/test/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mac/projects/pico/dma_uart/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,17 +117,43 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test
+# Target rules for targets named dma_uart
 
 # Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test
-.PHONY : test
+dma_uart: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dma_uart
+.PHONY : dma_uart
 
 # fast build rule for target.
-test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
+dma_uart/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/build
+.PHONY : dma_uart/fast
+
+#=============================================================================
+# Target rules for targets named dma_uart_RX_pio_pio_h
+
+# Build rule for target.
+dma_uart_RX_pio_pio_h: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dma_uart_RX_pio_pio_h
+.PHONY : dma_uart_RX_pio_pio_h
+
+# fast build rule for target.
+dma_uart_RX_pio_pio_h/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart_RX_pio_pio_h.dir/build.make CMakeFiles/dma_uart_RX_pio_pio_h.dir/build
+.PHONY : dma_uart_RX_pio_pio_h/fast
+
+#=============================================================================
+# Target rules for targets named dma_uart_TX_pio_pio_h
+
+# Build rule for target.
+dma_uart_TX_pio_pio_h: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 dma_uart_TX_pio_pio_h
+.PHONY : dma_uart_TX_pio_pio_h
+
+# fast build rule for target.
+dma_uart_TX_pio_pio_h/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart_TX_pio_pio_h.dir/build.make CMakeFiles/dma_uart_TX_pio_pio_h.dir/build
+.PHONY : dma_uart_TX_pio_pio_h/fast
 
 #=============================================================================
 # Target rules for targets named ELF2UF2Build
@@ -207,12 +233,36 @@ cyw43_driver_picow_cyw43_bus_pio_spi_pio_h/fast:
 	$(MAKE) $(MAKESILENT) -f pico-sdk/src/rp2_common/pico_cyw43_driver/CMakeFiles/cyw43_driver_picow_cyw43_bus_pio_spi_pio_h.dir/build.make pico-sdk/src/rp2_common/pico_cyw43_driver/CMakeFiles/cyw43_driver_picow_cyw43_bus_pio_spi_pio_h.dir/build
 .PHONY : cyw43_driver_picow_cyw43_bus_pio_spi_pio_h/fast
 
+dma_uart.obj: dma_uart.c.obj
+.PHONY : dma_uart.obj
+
+# target to build an object file
+dma_uart.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/dma_uart.c.obj
+.PHONY : dma_uart.c.obj
+
+dma_uart.i: dma_uart.c.i
+.PHONY : dma_uart.i
+
+# target to preprocess a source file
+dma_uart.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/dma_uart.c.i
+.PHONY : dma_uart.c.i
+
+dma_uart.s: dma_uart.c.s
+.PHONY : dma_uart.s
+
+# target to generate assembly for a file
+dma_uart.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/dma_uart.c.s
+.PHONY : dma_uart.c.s
+
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i
@@ -220,7 +270,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.i: home
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s
@@ -228,7 +278,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.s: home
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.c.s
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
@@ -236,7 +286,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.obj: home/m
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i
@@ -244,7 +294,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.i: home/mac
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s
@@ -252,7 +302,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.s: home/mac
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.s
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj
@@ -260,7 +310,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.obj: home/m
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i
@@ -268,7 +318,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.i: home/mac
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s
@@ -276,7 +326,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.s: home/mac
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_device.c.s
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj
@@ -284,7 +334,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.obj: hom
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i
@@ -292,7 +342,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.i: home/
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s
@@ -300,7 +350,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.s: home/
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/dfu/dfu_rt_device.c.s
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj
@@ -308,7 +358,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.obj: home/m
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i
@@ -316,7 +366,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.i: home/mac
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s
@@ -324,7 +374,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.s: home/mac
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/hid/hid_device.c.s
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj
@@ -332,7 +382,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.obj: home
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i
@@ -340,7 +390,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.i: home/m
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s
@@ -348,7 +398,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.s: home/m
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/midi/midi_device.c.s
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj
@@ -356,7 +406,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.obj: home/m
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i
@@ -364,7 +414,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.i: home/mac
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s
@@ -372,7 +422,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.s: home/mac
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/msc/msc_device.c.s
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj
@@ -380,7 +430,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.obj: 
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i
@@ -388,7 +438,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.i: ho
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s
@@ -396,7 +446,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.s: ho
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ecm_rndis_device.c.s
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj
@@ -404,7 +454,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.obj: home/m
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i
@@ -412,7 +462,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.i: home/mac
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s
@@ -420,7 +470,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.s: home/mac
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/net/ncm_device.c.s
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj
@@ -428,7 +478,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.obj: 
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i
@@ -436,7 +486,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.i: ho
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s
@@ -444,7 +494,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.s: ho
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/usbtmc/usbtmc_device.c.s
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj
@@ -452,7 +502,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.obj: 
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i
@@ -460,7 +510,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.i: ho
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s
@@ -468,7 +518,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.s: ho
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/vendor/vendor_device.c.s
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj
@@ -476,7 +526,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.obj: ho
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i
@@ -484,7 +534,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.i: home
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s
@@ -492,7 +542,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.s: home
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/video/video_device.c.s
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
@@ -500,7 +550,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.obj: home/mac/p
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i
@@ -508,7 +558,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.i: home/mac/pro
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s
@@ -516,7 +566,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.s: home/mac/pro
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.s
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
@@ -524,7 +574,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.obj: home/mac/projec
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.i
@@ -532,7 +582,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.i: home/mac/projects
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.s
@@ -540,7 +590,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.s: home/mac/projects
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd.c.s
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
@@ -548,7 +598,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.obj: home/ma
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i
@@ -556,7 +606,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.i: home/mac/
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s
@@ -564,7 +614,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.s: home/mac/
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.s
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
@@ -572,7 +622,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i
@@ -580,7 +630,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s
@@ -588,7 +638,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.s
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
@@ -596,7 +646,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp20
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i
@@ -604,7 +654,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp20
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s
@@ -612,7 +662,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp20
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.s
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.obj: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
@@ -620,7 +670,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.obj: home/mac/projects/pico
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.i: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.c.i
@@ -628,7 +678,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.i: home/mac/projects/pico/p
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.c.i
 
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.s: home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.c.s
@@ -636,7 +686,7 @@ home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.s: home/mac/projects/pico/p
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/lib/tinyusb/src/tusb.c.s
 
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.obj: home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
@@ -644,7 +694,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.obj: home/
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
 
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.i: home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.c.i
@@ -652,7 +702,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.i: home/ma
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.c.i
 
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.s: home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.c.s
@@ -660,7 +710,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.s: home/ma
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_sync/critical_section.c.s
 
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.obj: home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
@@ -668,7 +718,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.obj: home/mac/pro
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
 
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.i: home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.c.i
@@ -676,7 +726,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.i: home/mac/proje
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.c.i
 
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.s: home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.c.s
@@ -684,7 +734,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.s: home/mac/proje
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_sync/lock_core.c.s
 
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.obj: home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
@@ -692,7 +742,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.obj: home/mac/project
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.c.obj
 
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.i: home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.c.i
@@ -700,7 +750,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.i: home/mac/projects/
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.c.i
 
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.s: home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.c.s
@@ -708,7 +758,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.s: home/mac/projects/
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_sync/mutex.c.s
 
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.obj: home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.c.obj
@@ -716,7 +766,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.obj: home/mac/projects/
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.c.obj
 
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.i: home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.c.i
@@ -724,7 +774,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.i: home/mac/projects/pi
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.c.i
 
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.s: home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.c.s
@@ -732,7 +782,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.s: home/mac/projects/pi
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_sync/sem.c.s
 
 home/mac/projects/pico/pico-sdk/src/common/pico_time/time.obj: home/mac/projects/pico/pico-sdk/src/common/pico_time/time.c.obj
@@ -740,7 +790,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_time/time.obj: home/mac/projects
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/common/pico_time/time.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_time/time.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_time/time.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_time/time.c.obj
 
 home/mac/projects/pico/pico-sdk/src/common/pico_time/time.i: home/mac/projects/pico/pico-sdk/src/common/pico_time/time.c.i
@@ -748,7 +798,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_time/time.i: home/mac/projects/p
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/common/pico_time/time.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_time/time.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_time/time.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_time/time.c.i
 
 home/mac/projects/pico/pico-sdk/src/common/pico_time/time.s: home/mac/projects/pico/pico-sdk/src/common/pico_time/time.c.s
@@ -756,7 +806,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_time/time.s: home/mac/projects/p
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/common/pico_time/time.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_time/time.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_time/time.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_time/time.c.s
 
 home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.obj: home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
@@ -764,7 +814,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.obj: home/ma
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.c.obj
 
 home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.i: home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.c.i
@@ -772,7 +822,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.i: home/mac/
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.c.i
 
 home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.s: home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.c.s
@@ -780,7 +830,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.s: home/mac/
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_time/timeout_helper.c.s
 
 home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.obj: home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.c.obj
@@ -788,7 +838,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.obj: home/mac/proj
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.c.obj
 
 home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.i: home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.c.i
@@ -796,7 +846,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.i: home/mac/projec
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.c.i
 
 home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.s: home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.c.s
@@ -804,7 +854,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.s: home/mac/projec
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_util/datetime.c.s
 
 home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.obj: home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.c.obj
@@ -812,7 +862,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.obj: home/mac/project
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.c.obj
 
 home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.i: home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.c.i
@@ -820,7 +870,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.i: home/mac/projects/
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.c.i
 
 home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.s: home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.c.s
@@ -828,7 +878,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.s: home/mac/projects/
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_util/pheap.c.s
 
 home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.obj: home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.c.obj
@@ -836,7 +886,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.obj: home/mac/project
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.c.obj
 
 home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.i: home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.c.i
@@ -844,7 +894,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.i: home/mac/projects/
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.c.i
 
 home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.s: home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.c.s
@@ -852,7 +902,7 @@ home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.s: home/mac/projects/
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/common/pico_util/queue.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
@@ -860,7 +910,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.obj: home/ma
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.i: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
@@ -868,7 +918,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.i: home/mac/
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.s: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
@@ -876,7 +926,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.s: home/mac/
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
@@ -884,7 +934,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.obj: home/
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.i: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
@@ -892,7 +942,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.i: home/ma
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.s: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
@@ -900,7 +950,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.s: home/ma
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_divider/divider.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
@@ -908,7 +958,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_divider/divider.obj: hom
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
@@ -916,7 +966,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.obj: home/ma
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.i: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.i
@@ -924,7 +974,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.i: home/mac/
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.s: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.s
@@ -932,7 +982,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.s: home/mac/
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
@@ -940,7 +990,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.obj: home/mac/
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.i: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
@@ -948,7 +998,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.i: home/mac/pr
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.s: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
@@ -956,7 +1006,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.s: home/mac/pr
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
@@ -964,7 +1014,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.obj: home/mac/pr
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.i: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
@@ -972,7 +1022,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.i: home/mac/proj
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.s: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
@@ -980,7 +1030,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.s: home/mac/proj
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
@@ -988,15 +1038,39 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.ob
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj
+
+home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
+.PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.obj
+
+# target to build an object file
+home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
+.PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.obj
+
+home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.i: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.i
+.PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.i
+
+# target to preprocess a source file
+home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.i
+.PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.i
+
+home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.s: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.s
+.PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.s
+
+# target to generate assembly for a file
+home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.s
+.PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.obj
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.i: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
@@ -1004,7 +1078,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.i: home/mac/proj
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.s: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
@@ -1012,7 +1086,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.s: home/mac/proj
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
@@ -1020,7 +1094,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.obj: home/mac/
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.i: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
@@ -1028,7 +1102,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.i: home/mac/pr
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.s: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
@@ -1036,7 +1110,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.s: home/mac/pr
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
@@ -1044,7 +1118,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.obj: home/ma
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.i: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
@@ -1052,7 +1126,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.i: home/mac/
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.s: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
@@ -1060,7 +1134,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.s: home/mac/
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
@@ -1068,7 +1142,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.obj: home/mac/
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.i: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
@@ -1076,7 +1150,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.i: home/mac/pr
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.s: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
@@ -1084,7 +1158,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.s: home/mac/pr
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
@@ -1092,7 +1166,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.obj: home/mac/
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.i: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
@@ -1100,7 +1174,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.i: home/mac/pr
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.s: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
@@ -1108,7 +1182,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.s: home/mac/pr
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_vreg/vreg.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
@@ -1116,7 +1190,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.obj: h
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
@@ -1124,7 +1198,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.i: hom
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
@@ -1132,7 +1206,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.s: hom
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
@@ -1140,7 +1214,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.obj: home/mac/
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.i: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
@@ -1148,7 +1222,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.i: home/mac/pr
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.s: home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
@@ -1156,7 +1230,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.s: home/mac/pr
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
@@ -1164,7 +1238,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.obj: h
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
@@ -1172,7 +1246,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.obj: home/ma
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
@@ -1180,7 +1254,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.i: home/mac/
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
@@ -1188,7 +1262,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.s: home/mac/
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_divider/divider.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
@@ -1196,7 +1270,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_divider/divider.obj: home/ma
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
@@ -1204,7 +1278,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.obj: hom
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
@@ -1212,7 +1286,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.obj: 
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
@@ -1220,7 +1294,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.i: ho
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
@@ -1228,7 +1302,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.s: ho
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
@@ -1236,7 +1310,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.obj: home
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i
@@ -1244,7 +1318,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.i: home/m
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.s
@@ -1252,7 +1326,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.s: home/m
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_math.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
@@ -1260,7 +1334,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.ob
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
@@ -1268,7 +1342,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumer
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i
@@ -1276,7 +1350,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumer
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s
@@ -1284,7 +1358,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumer
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
@@ -1292,7 +1366,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.obj: home/
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
@@ -1300,7 +1374,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.obj: ho
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
@@ -1308,7 +1382,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.i: home
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
@@ -1316,7 +1390,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.s: home
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
@@ -1324,7 +1398,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.obj: home/m
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i
@@ -1332,7 +1406,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.i: home/mac
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.s
@@ -1340,7 +1414,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.s: home/mac
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_math.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
@@ -1348,7 +1422,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.obj:
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
@@ -1356,7 +1430,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aea
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
@@ -1364,7 +1438,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.obj: home
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
@@ -1372,7 +1446,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.i: home/m
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
@@ -1380,7 +1454,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.s: home/m
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_malloc/pico_malloc.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
@@ -1388,7 +1462,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.obj: h
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
@@ -1396,7 +1470,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.obj: home/
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i
@@ -1404,7 +1478,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.i: home/ma
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s
@@ -1412,7 +1486,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.s: home/ma
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_platform/platform.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
@@ -1420,7 +1494,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.obj: home/mac/
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i
@@ -1428,7 +1502,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.i: home/mac/pr
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.s
@@ -1436,7 +1510,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.s: home/mac/pr
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_printf/printf.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
@@ -1444,7 +1518,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.obj: home/ma
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
@@ -1452,7 +1526,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.i: home/mac/
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
@@ -1460,7 +1534,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.s: home/mac/
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
@@ -1468,7 +1542,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.ob
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
@@ -1476,7 +1550,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.i:
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
@@ -1484,7 +1558,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.s:
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
@@ -1492,7 +1566,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.obj: home
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
@@ -1500,7 +1574,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.obj
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
@@ -1508,7 +1582,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.i: 
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
@@ -1516,7 +1590,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.s: 
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_standard_link/new_delete.cpp.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
@@ -1524,7 +1598,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.obj: home/mac/pr
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
@@ -1532,7 +1606,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.i: home/mac/proj
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
@@ -1540,39 +1614,15 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.s: home/mac/proj
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.s
-
-home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
-.PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj
-
-# target to build an object file
-home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
-.PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
-
-home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
-.PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i
-
-# target to preprocess a source file
-home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
-.PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.i
-
-home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
-.PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s
-
-# target to generate assembly for a file
-home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
-.PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.obj
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.i
@@ -1580,7 +1630,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.i:
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.s
@@ -1588,7 +1638,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.s:
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
@@ -1596,7 +1646,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.obj: hom
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.i
@@ -1604,7 +1654,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.i: home/
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.s
@@ -1612,7 +1662,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.s: home/
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
@@ -1620,7 +1670,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descript
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.i
@@ -1628,7 +1678,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descript
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.s
@@ -1636,7 +1686,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descript
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
@@ -1644,7 +1694,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.obj: home/mac/
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
@@ -1652,7 +1702,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.i: home/mac/pr
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
@@ -1660,7 +1710,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.s: home/mac/pr
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.s
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.obj: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
@@ -1668,7 +1718,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.obj: hom
 
 # target to build an object file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.i: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.i
@@ -1676,7 +1726,7 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.i: home/
 
 # target to preprocess a source file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.i
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.i
 
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.s: home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s
@@ -1684,32 +1734,8 @@ home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.s: home/
 
 # target to generate assembly for a file
 home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/dma_uart.dir/build.make CMakeFiles/dma_uart.dir/home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s
 .PHONY : home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.s
-
-test.obj: test.c.obj
-.PHONY : test.obj
-
-# target to build an object file
-test.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.c.obj
-.PHONY : test.c.obj
-
-test.i: test.c.i
-.PHONY : test.i
-
-# target to preprocess a source file
-test.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.c.i
-.PHONY : test.c.i
-
-test.s: test.c.s
-.PHONY : test.s
-
-# target to generate assembly for a file
-test.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.c.s
-.PHONY : test.c.s
 
 # Help Target
 help:
@@ -1724,8 +1750,13 @@ help:
 	@echo "... bs2_default_bin"
 	@echo "... bs2_default_padded_checksummed_asm"
 	@echo "... cyw43_driver_picow_cyw43_bus_pio_spi_pio_h"
+	@echo "... dma_uart_RX_pio_pio_h"
+	@echo "... dma_uart_TX_pio_pio_h"
 	@echo "... bs2_default"
-	@echo "... test"
+	@echo "... dma_uart"
+	@echo "... dma_uart.obj"
+	@echo "... dma_uart.i"
+	@echo "... dma_uart.s"
 	@echo "... home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.obj"
 	@echo "... home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.i"
 	@echo "... home/mac/projects/pico/pico-sdk/lib/tinyusb/src/class/audio/audio_device.s"
@@ -1824,6 +1855,9 @@ help:
 	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.i"
 	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq.s"
 	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.obj"
+	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.obj"
+	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.i"
+	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pio/pio.s"
 	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.obj"
 	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.i"
 	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/hardware_pll/pll.s"
@@ -1893,9 +1927,6 @@ help:
 	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.obj"
 	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.i"
 	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio/stdio.s"
-	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.obj"
-	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.i"
-	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.s"
 	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.obj"
 	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.i"
 	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.s"
@@ -1911,9 +1942,6 @@ help:
 	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.obj"
 	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.i"
 	@echo "... home/mac/projects/pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.s"
-	@echo "... test.obj"
-	@echo "... test.i"
-	@echo "... test.s"
 .PHONY : help
 
 
