@@ -1,0 +1,63 @@
+.program pio_uart_RX
+		
+
+public input:
+
+	;jezeli bit 1 idz znowu na poczatek
+	jmp pin, input
+	nop [6]
+	in pins, 1 [5]
+	in pins, 1 [5]
+	in pins, 1 [5]
+	in pins, 1 [5] 
+
+	in pins, 1 [5] 
+	in pins, 1 [5] 
+	in pins, 1 [5] 
+	in pins, 1 [5]  
+	in NULL, 24
+
+	;jezeli bit=1 idz wyslij dane - byl bit stopu
+	jmp pin, send_data
+	
+	;jezeli nie bylo bitu stopu
+	in NULL, 32
+	jmp input
+
+send_data:
+	push
+	jmp input
+
+
+	
+% c-sdk {
+void pio_uart_RX_program_init(PIO pio, uint sm, uint offset, uint pin_in, float div){
+
+pio_sm_config c =pio_uart_RX_program_get_default_config(offset);
+
+//allpw pio to control pin
+pio_gpio_init(pio, pin_in);
+
+//set jump pin
+sm_config_set_jmp_pin(&c,pin_in);
+
+//con pin to sset inst
+sm_config_set_in_pins(&c, pin_in);
+
+//set pins directions
+pio_sm_set_consecutive_pindirs(pio,sm,pin_in,1,false);
+
+sm_config_set_clkdiv(&c,div);
+
+//configure isr
+sm_config_set_in_shift(
+        &c,
+        true, // Shift-to-right = false (i.e. shift to left)
+        false,  // Autopush enabled
+        8      // Autopush threshold = 8
+    );
+
+pio_sm_init(pio,sm,offset,&c);
+
+}
+%}
