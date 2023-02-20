@@ -34,7 +34,7 @@ int main(){
 	
 	//choose pio from 0 or 1	
 	PIO pio=pio0;
-	sleep_ms(6000);
+	sleep_ms(5500);
 
 	uint32_t clk=clock_get_hz(clk_sys);
 	printf ("clk of sys is: %zu\n",clk);
