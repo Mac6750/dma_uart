@@ -21,6 +21,7 @@ pico_generate_pio_header(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
 	hardware_pio 
+	hardware_dma
 	pico_stdlib
 )
 pico_add_extra_outputs(${PROJECT_NAME})

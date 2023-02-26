@@ -24,7 +24,7 @@ repeating_timer_t TX_timer;
 
 volatile uint32_t rxdata[SIZE_RX];
 volatile uint32_t txdata[SIZE_TX];
-volatile char bigdata[BIGDATA_ROWS][BIGDATA_COL];
+volatile uint32_t bigdata[BIGDATA_ROWS][BIGDATA_COL];
 volatile bool row_rdy[BIGDATA_ROWS];
 
 volatile int chan_rx=0;
@@ -38,10 +38,9 @@ void setup ();
 void config_dma(pio_hw_t* pio,dma_channel_config c, uint8_t sm, bool is_tx, int chan, size_t size);
 void RX_handler();
 void TX_handler();
-int cpy_charto32(volatile uint32_t* dst, char* src, size_t size_dst,size_t size_src);
-int cpy_32tochar(char* dst,volatile uint32_t* src, size_t size_dst,size_t size_src);
-void get_string(volatile char *data,size_t size,char*str);
-int my_print(volatile char* data, size_t size);
+int cpy_charto32(uint32_t* dst, char* src, size_t size_dst,size_t size_src);
+int cpy_32tochar(char* dst, uint32_t* src, size_t size_dst,size_t size_src);
+void get_string(uint32_t *data,size_t size,char*str);
 
 //void transmit();
 //bool TX_timer_callback(repeating_timer_t *TX_timer);
@@ -57,19 +56,18 @@ void RX_dma_handler(){
 
  	//clear interrupt
 	dma_channel_acknowledge_irq0(chan_rx);
-	/*
 	if(bd_row<BIGDATA_ROWS&&(row_rdy[bd_row]==false)){
-	
+		printf("receiving\n");
 		for(int i=0;i<100;i++){
-			bigdata[bd_row][i]=(char)rxdata[i];
-			if(rxdata[i]=='\n'){break;}
+			bigdata[bd_row][i]=rxdata[i];
+			if(rxdata[i]=="\n"||rxdata[i]=="\0"){break;}
 		}
-	
 		row_rdy[bd_row]=true;
 		bd_row++;
 	}
+	printf("receiving big data is %s",bigdata[0]);
 	if(bd_row>=BIGDATA_ROWS){bd_row=0;}
-*/
+
 	dma_channel_set_write_addr(chan_rx, &rxdata[0], true);
 
 
@@ -84,12 +82,13 @@ void TX_dma_handler(){
 
 
 void config_dma(pio_hw_t* pio,dma_channel_config c, uint8_t sm, bool is_tx, int chan, size_t size) {
-	//get dma dreq for pio
+
+	channel_config_set_transfer_data_size(&c, DMA_SIZE_32);
 	uint8_t dreq=pio_get_dreq(pio, sm, is_tx);
 	
 	if(is_tx){
 		dma_channel_config c = dma_channel_get_default_config(chan);
-	        channel_config_set_transfer_data_size(&c, DMA_SIZE_8);
+	        channel_config_set_transfer_data_size(&c, DMA_SIZE_32);
 	        channel_config_set_read_increment(&c, true);
 	        channel_config_set_write_increment(&c, false);
 
@@ -112,7 +111,7 @@ void config_dma(pio_hw_t* pio,dma_channel_config c, uint8_t sm, bool is_tx, int 
 
 	else {
 		dma_channel_config c = dma_channel_get_default_config(chan);
-	        channel_config_set_transfer_data_size(&c, DMA_SIZE_8);
+	        channel_config_set_transfer_data_size(&c, DMA_SIZE_32);
 	        channel_config_set_read_increment(&c, false);
 	        channel_config_set_write_increment(&c, true);
 
@@ -132,7 +131,7 @@ void config_dma(pio_hw_t* pio,dma_channel_config c, uint8_t sm, bool is_tx, int 
 
 }
 
-int cpy_charto32(volatile uint32_t* dst, char* src, size_t size_dst,size_t size_src){
+int cpy_charto32(uint32_t* dst, char* src, size_t size_dst,size_t size_src){
 
 	if(size_dst>=size_src){	
 		for (int i=0;i<size_src;i++){
@@ -147,7 +146,7 @@ int cpy_charto32(volatile uint32_t* dst, char* src, size_t size_dst,size_t size_
 }
 
 
-int cpy_32tochar(char* dst,volatile uint32_t* src, size_t size_dst,size_t size_src){
+int cpy_32tochar(char* dst, uint32_t* src, size_t size_dst,size_t size_src){
 
 	
 	if(size_dst>=size_src){	
@@ -163,26 +162,15 @@ int cpy_32tochar(char* dst,volatile uint32_t* src, size_t size_dst,size_t size_s
 }
 
 
-void get_string(volatile char *data,size_t size,char*str){
+void get_string(uint32_t *data,size_t size,char*str){
 	for(int i=0;i<size;i++){
-		if(data[i]=='\n'){
-			//cpy_32tochar(str, data, size,size);
+		if(data[i]=='\n' || data[i]=='\0'){
+			cpy_32tochar(str, data, size,size);
 			break;
 		}	
 	}
 }
-int my_print(volatile char * data, size_t size){
-	char a=0;
-	for (int i=0;i<size;i++){
-		if(data[i]=='\n'){
-			printf("\n");
-			return 0;	
-		}
-		a=(char)*data;
-		printf("%c",a);
-	}
-	return -1;
-}
+
 int main(){
 	
 	stdio_init_all();
@@ -272,19 +260,16 @@ int main(){
 	while(1){
 		for(int i=0;i<BIGDATA_ROWS;i++){
 			if(row_rdy[i]){	
-				printf("i=%d ",i);
-				printf("%s",bigdata[i]);
-			//	my_print(bigdata[i],BIGDATA_COL);
-				memset(bigdata[i],0,BIGDATA_ROWS);
 				row_rdy[i]=false;
-				printf("\n");
+				
+				printf("bigdata is: %s\n",bigdata);
 			}
 		}
-		puts("loop end rows done\n");
 	        gpio_put(MY_LED, 1);
-		sleep_ms(500);
+		sleep_ms(250);
 	        gpio_put(MY_LED, 0);
-		sleep_ms(500);
+		sleep_ms(250);
+		puts("big data row done\n");
 	}
 
 

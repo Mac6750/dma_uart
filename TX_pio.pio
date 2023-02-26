@@ -42,7 +42,11 @@ sm_config_set_out_pins(&c, pin_out, 1);
 //set pins directions
 pio_sm_set_consecutive_pindirs(pio,sm,pin_out,1,true);
 
+//conf clock
 sm_config_set_clkdiv(&c,div);
+
+//combine fifo to 8 word tx fifo
+sm_config_set_fifo_join(&c, PIO_FIFO_JOIN_TX);
 
 //configure isr
 sm_config_set_out_shift(

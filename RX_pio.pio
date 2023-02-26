@@ -21,11 +21,10 @@ public input:
 	jmp pin, send_data
 	
 	;jezeli nie bylo bitu stopu
-	in NULL, 32
 	jmp input
 
 send_data:
-	push
+	push block
 	jmp input
 
 
@@ -47,7 +46,13 @@ sm_config_set_in_pins(&c, pin_in);
 //set pins directions
 pio_sm_set_consecutive_pindirs(pio,sm,pin_in,1,false);
 
+//configure clock
 sm_config_set_clkdiv(&c,div);
+
+
+//combine fifo to 8 word tx fifo
+//sm_config_set_fifo_join(&c, PIO_FIFO_JOIN_RX);
+
 
 //configure isr
 sm_config_set_in_shift(
