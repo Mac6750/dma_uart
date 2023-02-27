@@ -14,24 +14,21 @@
 #define MY_LED 16
 #define MY_RX 14
 #define MY_TX 15
-#define BIGDATA_COL 100
-#define BIGDATA_ROWS 10
+#define SIZE_ROW 10
+#define SIZE_COL 100
 #define SIZE_TX 100
-#define SIZE_RX 100
 
-volatile uint8_t TX_count=0; 
-repeating_timer_t TX_timer;
 
-volatile uint32_t rxdata[SIZE_RX];
+volatile uint32_t rxdata[SIZE_ROW][SIZE_COL];
 volatile uint32_t txdata[SIZE_TX];
-volatile char bigdata[BIGDATA_ROWS][BIGDATA_COL];
-volatile bool row_rdy[BIGDATA_ROWS];
 
+volatile bool row_rdy[SIZE_ROW];
+volatile bool TX_ended=false;
 volatile int chan_rx=0;
 volatile int chan_tx=0;
 volatile int count=0;
-int bd_row=0;
-const char mess_d1mini[]="hello d1 mini\n";
+volatile int bd_row=0;
+const char mess_d1mini[]="{hello d1 mini}";
 
 
 void setup ();
@@ -40,11 +37,8 @@ void RX_handler();
 void TX_handler();
 int cpy_charto32(volatile uint32_t* dst, char* src, size_t size_dst,size_t size_src);
 int cpy_32tochar(char* dst,volatile uint32_t* src, size_t size_dst,size_t size_src);
-void get_string(volatile char *data,size_t size,char*str);
-int my_print(volatile char* data, size_t size);
+void get_string(volatile uint32_t *data,size_t size,char*str);
 
-//void transmit();
-//bool TX_timer_callback(repeating_timer_t *TX_timer);
 
 void setup(){
 	gpio_init(MY_LED);
@@ -57,20 +51,22 @@ void RX_dma_handler(){
 
  	//clear interrupt
 	dma_channel_acknowledge_irq0(chan_rx);
-	/*
-	if(bd_row<BIGDATA_ROWS&&(row_rdy[bd_row]==false)){
-	
-		for(int i=0;i<100;i++){
-			bigdata[bd_row][i]=(char)rxdata[i];
-			if(rxdata[i]=='\n'){break;}
-		}
-	
-		row_rdy[bd_row]=true;
-		bd_row++;
-	}
-	if(bd_row>=BIGDATA_ROWS){bd_row=0;}
-*/
-	dma_channel_set_write_addr(chan_rx, &rxdata[0], true);
+	dma_channel_set_irq0_enabled(chan_rx,false);
+	row_rdy[bd_row]=true;
+	//printf("row %d is ready\n",bd_row);
+	//printf("rxdata: ");
+	//for(int i=0; i<SIZE_COL;i++){
+	//	printf("%c",rxdata[bd_row][i]);
+	//}
+	//printf("\n");
+	count++;
+	bd_row++;
+	if(bd_row>=SIZE_ROW){bd_row=0;}
+	//printf("row %d is working\n",bd_row);
+	//printf("count %d is \n",count);
+
+	dma_channel_set_write_addr(chan_rx, &rxdata[bd_row], true);
+	dma_channel_set_irq0_enabled(chan_rx,true);
 
 
 }
@@ -78,7 +74,12 @@ void RX_dma_handler(){
 
 void TX_dma_handler(){
 	dma_channel_acknowledge_irq1(chan_tx);
-	dma_channel_set_read_addr(chan_tx, &txdata[0], true);
+	dma_channel_set_irq1_enabled(chan_tx,false);
+
+	printf("TX HANDLER\n");
+
+	TX_ended=true;
+	dma_channel_set_irq1_enabled(chan_tx,true);
 
 }
 
@@ -89,7 +90,7 @@ void config_dma(pio_hw_t* pio,dma_channel_config c, uint8_t sm, bool is_tx, int 
 	
 	if(is_tx){
 		dma_channel_config c = dma_channel_get_default_config(chan);
-	        channel_config_set_transfer_data_size(&c, DMA_SIZE_8);
+	        channel_config_set_transfer_data_size(&c, DMA_SIZE_32);
 	        channel_config_set_read_increment(&c, true);
 	        channel_config_set_write_increment(&c, false);
 
@@ -112,7 +113,7 @@ void config_dma(pio_hw_t* pio,dma_channel_config c, uint8_t sm, bool is_tx, int 
 
 	else {
 		dma_channel_config c = dma_channel_get_default_config(chan);
-	        channel_config_set_transfer_data_size(&c, DMA_SIZE_8);
+	        channel_config_set_transfer_data_size(&c, DMA_SIZE_32);
 	        channel_config_set_read_increment(&c, false);
 	        channel_config_set_write_increment(&c, true);
 
@@ -162,27 +163,55 @@ int cpy_32tochar(char* dst,volatile uint32_t* src, size_t size_dst,size_t size_s
 
 }
 
+int get_string(volatile uint32_t *data,size_t size,char*str){
+	int beg=-1;
+	int end=-1;
+	int ret=-1;
+	//ret==-1 { or }  not found
+	//ret==0 found { 
+	//ret==1 found } 
+	//ret==2 found { and }
 
-void get_string(volatile char *data,size_t size,char*str){
 	for(int i=0;i<size;i++){
-		if(data[i]=='\n'){
-			//cpy_32tochar(str, data, size,size);
-			break;
-		}	
-	}
-}
-int my_print(volatile char * data, size_t size){
-	char a=0;
-	for (int i=0;i<size;i++){
-		if(data[i]=='\n'){
-			printf("\n");
-			return 0;	
+		if(data[i]=='{' && beg==-1){
+			beg=i;//found beg
+			continue;
 		}
-		a=(char)*data;
-		printf("%c",a);
+		else if(data[i]=='}'){
+			end=i;//found end
+			break;
+		}
 	}
-	return -1;
+	//found nothing
+	if(beg==-1 && end==-1){
+		ret=-1;
+	}
+
+	//found only begining 
+	if(beg!=-1 && end==-1){
+		ret=0;
+		int num_of_char=(size-beg+1);
+		cpy_32tochar(str, &data[beg], size, num_of_char);
+
+	}
+
+	//found only end 
+	if(beg==-1 && end!=-1){
+		ret=1;
+		cpy_32tochar(str, data[0], size, end);
+	}
+
+	//found begining and end 
+	if(beg!=-1 && end!=-1){
+		int num_of_char=(end-beg+1);
+		cpy_32tochar(str, &data[beg], size, num_of_char);
+		ret=2;
+	}
+
+	return ret;
 }
+
+
 int main(){
 	
 	stdio_init_all();
@@ -232,13 +261,16 @@ int main(){
 
 //setup DMA CHANNELS
 
-	for(int i=0;i<100;i++){
-		rxdata[i]=0;
+	for(int j=0;j<10;j++){
+		for(int i=0;i<100;i++){
+			rxdata[j][i]=0;
+		}
+		row_rdy[j]=false;
 	}
 	
-	size_t size_dst=sizeof(mess_d1mini)/sizeof(mess_d1mini[0]);
-	
-	if(cpy_charto32(txdata,mess_d1mini,SIZE_TX,size_dst)==-1){
+	size_t size_src=sizeof(mess_d1mini)/sizeof(mess_d1mini[0]);
+	printf("size const %d\n",size_src);
+	if(cpy_charto32(txdata,mess_d1mini,SIZE_TX,size_src)==-1){
 		printf("cpying error\n");
 	}
 
@@ -260,48 +292,67 @@ int main(){
 	irq_set_enabled(DMA_IRQ_1, true);
 	
 	printf("transmission starting\n");
-	config_dma(pio,dma_rx,sm_rx,false,chan_rx,SIZE_RX);
-	config_dma(pio,dma_tx,sm_tx,true,chan_tx,SIZE_TX);
+	config_dma(pio,dma_rx,sm_rx,false,chan_rx,SIZE_COL);
+	config_dma(pio,dma_tx,sm_tx,true,chan_tx,size_src);
 
 //end of DMA conf
 	
-
+	
 
 	puts("starting reading\n");
 //end of conf, starting infinite loop
+
 	while(1){
-		for(int i=0;i<BIGDATA_ROWS;i++){
-			if(row_rdy[i]){	
-				printf("i=%d ",i);
-				printf("%s",bigdata[i]);
-			//	my_print(bigdata[i],BIGDATA_COL);
-				memset(bigdata[i],0,BIGDATA_ROWS);
+		sleep_ms(1000);	
+		char str[SIZE_COL];
+		int ret=0;
+
+		for(int i=0;i<SIZE_ROW;i++){
+			if(row_rdy[i]==true){
+				//ret==-1 { or }  not found
+				//ret==0 found { 
+				//ret==1 found } 
+				//ret==2 found { and }
+				
+				printf("bd_row: %d, count: %d\n",bd_row,count);
+				ret=get_string(rxdata[i],SIZE_COL,str);	
+				
+				if(ret==-1){
+					printf("string not found\n");
+				}
+
+				else if (ret==0){
+					printf("znaleziono poczatek\n");
+					str_pocz=str;
+				}
+
+				else if (ret==0){
+					printf("znaleziono koniec\n");
+					str_kon=str;
+				}
+
+				else if(ret==2{
+					printf("znaleziono caly str\n");
+					printf("i=%d ",i);
+					printf("%s",str);
+					printf("\n");
+				}
+
 				row_rdy[i]=false;
-				printf("\n");
+
 			}
 		}
-		puts("loop end rows done\n");
-	        gpio_put(MY_LED, 1);
-		sleep_ms(500);
-	        gpio_put(MY_LED, 0);
-		sleep_ms(500);
+		//puts("loop end rows done\n");
+	        //gpio_put(MY_LED, 1);
+		//sleep_ms(500);
+	        //gpio_put(MY_LED, 0);
+		//sleep_ms(500);
+		if(TX_ended){
+			dma_channel_set_read_addr(chan_tx, &txdata[0], true);
+			TX_ended=false;
+		}
+
 	}
 
 
 }
-	//size_t bd_size=sizeof(bigdata)/sizeof(bigdata[0]);
-	//char c=0;
-	
-//	for(int i=0; i<bd_size;i++){
-	//	c=(char)bigdata[i];
-	//size_t size_big=sizeof(bigdata)/sizeof(bigdata[0]);
-	//char str[size_big];
-	//get_string(bigdata,size_big,str);
-//	}
-	
-	//while(1){
-		//processor retiring and baking bread
-	//	tight_loop_contents();
-	//}
-
-
