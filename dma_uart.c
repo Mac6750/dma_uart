@@ -14,8 +14,8 @@
 #define MY_LED 16
 #define MY_RX 14
 #define MY_TX 15
-#define SIZE_ROW 10
-#define SIZE_COL 100
+#define SIZE_ROW 5
+#define SIZE_COL 400
 #define SIZE_TX 100
 
 
@@ -28,7 +28,7 @@ volatile int chan_rx=0;
 volatile int chan_tx=0;
 volatile int count=0;
 volatile int bd_row=0;
-const char mess_d1mini[]="{hello d1 mini}";
+const char mess_d1mini[]="{h}";
 
 
 void setup ();
@@ -37,7 +37,7 @@ void RX_handler();
 void TX_handler();
 int cpy_charto32(volatile uint32_t* dst, char* src, size_t size_dst,size_t size_src);
 int cpy_32tochar(char* dst,volatile uint32_t* src, size_t size_dst,size_t size_src);
-void get_string(volatile uint32_t *data,size_t size,char*str);
+int get_string(volatile uint32_t *data,size_t size,char*str,int *dlug);
 
 
 void setup(){
@@ -76,7 +76,7 @@ void TX_dma_handler(){
 	dma_channel_acknowledge_irq1(chan_tx);
 	dma_channel_set_irq1_enabled(chan_tx,false);
 
-	printf("TX HANDLER\n");
+	//printf("TX HANDLER\n");
 
 	TX_ended=true;
 	dma_channel_set_irq1_enabled(chan_tx,true);
@@ -163,7 +163,7 @@ int cpy_32tochar(char* dst,volatile uint32_t* src, size_t size_dst,size_t size_s
 
 }
 
-int get_string(volatile uint32_t *data,size_t size,char*str){
+int get_string(volatile uint32_t *data,size_t size,char*str,int *dlug){
 	int beg=-1;
 	int end=-1;
 	int ret=-1;
@@ -171,43 +171,74 @@ int get_string(volatile uint32_t *data,size_t size,char*str){
 	//ret==0 found { 
 	//ret==1 found } 
 	//ret==2 found { and }
+//	printf("start get string\n");
 
 	for(int i=0;i<size;i++){
 		if(data[i]=='{' && beg==-1){
 			beg=i;//found beg
+//			printf("in for found {\n");
 			continue;
 		}
 		else if(data[i]=='}'){
 			end=i;//found end
+//			printf("in for found }\n");
 			break;
 		}
 	}
+//	printf("ended search\n");
+
 	//found nothing
 	if(beg==-1 && end==-1){
+		printf("found nothing in get string\n");
+		for(int i=0;i<size;i++){
+			printf("\n char[ %d ]=%c\n",i,str[i]);
+		}
 		ret=-1;
+		sleep_ms(100000);
 	}
 
 	//found only begining 
-	if(beg!=-1 && end==-1){
-		ret=0;
-		int num_of_char=(size-beg+1);
-		cpy_32tochar(str, &data[beg], size, num_of_char);
+	else if(beg!=-1 && end==-1){
+		ret=0;		
+		int ile_char=(size-beg);
+		*dlug=size;
+		//printf("found beg\n");
+		//printf("beg is %d\n",beg);
+		//printf(	"ile_char is %d\n",ile_char);
+		//printf(	"dlug is %d\n",*dlug);
+
+		//for(int i=beg;i<=ile_char;i++){
+		//	printf("\n char[ %d ]=%c\n",i,data[i]);
+//		}
+		cpy_32tochar(str, &data[beg], size,  ile_char);
+		//for(int i=0;i<ile_char;i++){
+		//	printf("\n char[ %d ]=%c\n",i,str[i]);
+		//}
+		//printf("&data[0][ilechar] is %d\n",&data[ile_char]);
 
 	}
 
-	//found only end 
-	if(beg==-1 && end!=-1){
+	//found end 
+	else if(beg==-1 && end!=-1){
 		ret=1;
-		cpy_32tochar(str, data[0], size, end);
+		//printf("only found end\n");
+		//printf("end is %d\n",end);
+		int ile_char=end+1;
+		*dlug=end+1;
+		cpy_32tochar(str, &data[0], size,  ile_char);
 	}
 
 	//found begining and end 
-	if(beg!=-1 && end!=-1){
-		int num_of_char=(end-beg+1);
-		cpy_32tochar(str, &data[beg], size, num_of_char);
+	else if(beg!=-1 && end!=-1){
+ 		int ile_char=(end-beg+1);
+		*dlug=end+1;
+		//printf("found beg and end\n");
+		//printf("beg is %d\n",beg);
+		//printf("end is %d\n",end);
+		cpy_32tochar(str, &data[beg], size, ile_char);
 		ret=2;
 	}
-
+	
 	return ret;
 }
 
@@ -221,7 +252,7 @@ int main(){
 	
 	//wait so we can have time to connect via putty
 	sleep_ms(5500);
-	puts("hello d1 mini");
+	puts(mess_d1mini);
 
 //start of pio conf
 
@@ -261,8 +292,8 @@ int main(){
 
 //setup DMA CHANNELS
 
-	for(int j=0;j<10;j++){
-		for(int i=0;i<100;i++){
+	for(int j=0;j<SIZE_ROW;j++){
+		for(int i=0;i<SIZE_COL;i++){
 			rxdata[j][i]=0;
 		}
 		row_rdy[j]=false;
@@ -301,43 +332,93 @@ int main(){
 
 	puts("starting reading\n");
 //end of conf, starting infinite loop
+	bool jest_pocz=false;
+	char str_pocz[SIZE_COL+1]={0};
 
 	while(1){
-		sleep_ms(1000);	
-		char str[SIZE_COL];
-		int ret=0;
-
+		sleep_ms(1);	
+	
 		for(int i=0;i<SIZE_ROW;i++){
+
 			if(row_rdy[i]==true){
+				int ret=0;
+				int dlug=0;
 				//ret==-1 { or }  not found
 				//ret==0 found { 
 				//ret==1 found } 
 				//ret==2 found { and }
-				
-				printf("bd_row: %d, count: %d\n",bd_row,count);
-				ret=get_string(rxdata[i],SIZE_COL,str);	
-				
-				if(ret==-1){
-					printf("string not found\n");
-				}
+				//printf("rxdata[0][99] is %c\n",rxdata[0][99]);
+				//printf("rxdata[1][0] is %c\n",rxdata[1][0]);
+				//printf("&rxdata[0][99] is %d\n",&rxdata[0][99]);
 
-				else if (ret==0){
-					printf("znaleziono poczatek\n");
-					str_pocz=str;
-				}
+				//printf("bd_row: %d, count: %d\n",bd_row,count);
+				for (int j=0;j<SIZE_COL;){
+					char str[SIZE_COL+1]={0};
+					//sleep_ms(1000);
+		//			printf("\nstart\n");					
+		//			printf("&rxdata[i][j] is %d\n",&rxdata[i][j]);
+		//			printf("rxdata[i][j] is %c\n",rxdata[i][j]);
+				//	printf("j is %d\n",j);
+		//			printf("SIZE_COL-j is is %d\n",(SIZE_COL-j));
+					//str				
+		//			printf("&dlug is %d\n",dlug);
+					ret=get_string(&rxdata[i][j],(SIZE_COL-j),str,&dlug);
+		//			printf("str is %s\n",str);
+		//			printf("&dlug is %d\n",dlug);
+		//			printf("\n end\n\n");										
 
-				else if (ret==0){
-					printf("znaleziono koniec\n");
-					str_kon=str;
-				}
+					j=j+dlug;
+					if(ret==-1 && jest_pocz!=true){
+						printf("string not found\n");
+						jest_pocz=false;
+						memset(str_pocz,0,SIZE_COL+1);
+						break;
+					}
 
-				else if(ret==2{
-					printf("znaleziono caly str\n");
-					printf("i=%d ",i);
-					printf("%s",str);
-					printf("\n");
-				}
+					else if (ret==0){
+						//printf("znaleziono poczatek\n");
 
+						//printf("str\n");
+						//for(int i=0;i<sizeof(str_pocz)/sizeof(str[0]);i++){
+						//	printf("\n char[ %d ]=%c\n",i,str[i]);
+						//}
+						strcpy(str_pocz,str);
+						//printf("\n\n str_pocz\n");
+						
+
+						jest_pocz=true;
+	
+					}
+
+					else if (ret==1){
+
+						if(jest_pocz==true){
+							
+						//	printf("znaleziono dwie polowy str\n");
+							//printf("str[0] is %c\n",str[0]);
+						
+						 //	for(int i=0;i<sizeof(str_pocz)/sizeof(str_pocz[0]);i++){
+                                                 //     	printf("\n char[ %d ]=%c\n",i,str_pocz[i]);
+                                               	 //	}	
+						//	printf("i=%d ",i);
+							printf("%s",str_pocz);
+							printf("%s",str);
+							printf("\n");
+						}
+						jest_pocz=false;
+						memset(str_pocz,0,SIZE_COL+1);
+						//sleep_ms(100000);
+					}
+
+					else if(ret==2){
+						//printf("znaleziono caly str\n");
+						//printf("i=%d ",i);
+						printf("%s",str);
+						printf("\n");
+						memset(str_pocz,0,SIZE_COL+1);
+					}
+
+				}
 				row_rdy[i]=false;
 
 			}
